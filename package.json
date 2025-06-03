@@ -1,0 +1,65 @@
+{
+  "name": "prev25-language-support",
+  "displayName": "Prev25 Language Support",
+  "description": "Syntax and type error highlighting for Prev25 files",
+  "version": "0.1.0",
+  "icon": "icons/prev25-icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ttisak/vscode-prev25-language-support.git"
+  },
+  "publisher": "ttisak",
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:prev25"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [{
+      "id": "prev25",
+      "aliases": ["Prev25", "prev25"],
+      "extensions": [".prev25"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/prev25-icon.svg",
+        "dark": "./icons/prev25-icon.svg"
+      }
+    }],
+    "grammars": [{
+      "language": "prev25",
+      "scopeName": "source.prev25",
+      "path": "./syntaxes/prev25.tmLanguage.json"
+    }],
+    "configuration": {
+      "type": "object",
+      "title": "Prev25 Configuration",
+      "properties": {
+        "prev25.binDirectory": {
+          "type": "string",
+          "default": "/home/tim/p/prev25/bin",
+          "description": "Path to the Prev25 compiler binary directory"
+        },
+        "prev25.antlrJarPath": {
+          "type": "string",
+          "default": "/home/tim/p/prev25/lib/antlr-4.13.2-complete.jar",
+          "description": "Path to the ANTLR JAR file"
+        }
+      }
+    }
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.60.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.0.0"
+  }
+}
